@@ -16,17 +16,18 @@ import Ormolu.Printer.Meat.Declaration.Type
 import Ormolu.Printer.Meat.Declaration.TypeFamily
 import Ormolu.Printer.Meat.Declaration.Value
 import Ormolu.Utils
+import Data.Data (toConstr)
 
 p_hsDecl :: HsDecl GhcPs -> R ()
 p_hsDecl = \case
   TyClD NoExt x -> p_tyClDecl x
   ValD NoExt x -> p_valDecl x
   SigD NoExt x -> p_sigDecl x
-  _ -> notImplemented "certain kinds of declarations"
+  d -> notImplemented $ "Declaration type: " ++ show (toConstr d)
 
 p_tyClDecl :: TyClDecl GhcPs -> R ()
 p_tyClDecl = \case
   FamDecl NoExt x -> p_famDecl x
   SynDecl {..} -> p_synDecl tcdLName tcdTyVars tcdRhs
   DataDecl {..} -> p_dataDecl tcdLName tcdTyVars tcdDataDefn
-  _ -> notImplemented "certain kinds of declarations"
+  d -> notImplemented $ "Declaration type: " ++ show (toConstr d)

@@ -1,0 +1,2 @@
+
+instance FromJSON MyType

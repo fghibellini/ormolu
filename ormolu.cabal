@@ -66,6 +66,7 @@ library
                     , Ormolu.Printer.Meat.Declaration.Type
                     , Ormolu.Printer.Meat.Declaration.TypeFamily
                     , Ormolu.Printer.Meat.Declaration.Value
+                    , Ormolu.Printer.Meat.Declaration.Instance
                     , Ormolu.Printer.Meat.ImportExport
                     , Ormolu.Printer.Meat.Module
                     , Ormolu.Printer.Meat.Type
